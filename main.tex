@@ -4,6 +4,7 @@
 \usepackage[english, spanish, es-nodecimaldot]{babel}
 \usepackage{bm}
 \usepackage{breqn}
+\usepackage{empheq}
 \usepackage{enumitem}
 \usepackage{fancyhdr}
 \usepackage{geometry}
@@ -154,6 +155,21 @@
 \newcommand*{\primeobserver}{\mathcal{O}^{\prime}}
 \newcommand*{\inlinesol}{\vspace*{10pt}\textbf{Solución}\vspace*{10pt}}
 
+% Defining a variant of Aboxed command from mathtools
+\makeatletter
+\newcommand*\Acolorboxed[2][pinkwave]{%
+   \let\bgroup{\romannumeral-`}%
+   \@Acolorboxed{#1}#2&&\ENDDNE
+}
+\def\@Acolorboxed#1#2&#3&#4\ENDDNE{%
+  \ifnum0=`{}\fi
+  \setbox\z@\hbox{$\displaystyle#2{}\m@th$\kern\fboxsep \kern\fboxrule}%
+  \edef\@tempa{\kern\wd\z@ & \kern-\the\wd\z@ \fboxsep\the\fboxsep \fboxrule\the\fboxrule}%
+  \@tempa
+  \fcolorbox{#1}{base3}{\m@th$\displaystyle#2#3$}%
+} 
+\makeatother
+
 
 %%%%%%%%%%%%%%%%%%Portada y configuración%%%%%%%%%%%%%%%%%%
 % Configuración de portada
@@ -205,7 +221,7 @@
                 \begin{align*}
                     E &= \SI{5}{\joule} = \dfrac{\SI[per-mode = power]{5}{\kilogram\metre\squared\per\second\squared}}{1^{2}},\\
                     &= \dfrac{\SI[per-mode = power]{5}{\kilogram\metre\squared\per\second\squared}}{\SI[per-mode = power]{9e16}{\metre\squared\per\second\squared}},\\
-                    \Aboxed{E &= \SI{5.56e-17}{\kilogram}}
+                    \Acolorboxed{E &= \SI{5.56e-17}{\kilogram}}
                 \end{align*}
 
                 \item Momento \(p = \SI[per-mode = power]{3e4}{\kilogram \metre \per\second}\) (compara con tu resultado anterior, qué curioso).
@@ -215,7 +231,7 @@
                 \begin{align*}
                     p &= \dfrac{\SI[per-mode = power]{3e4}{\kilogram \metre \per\second}}{1},\\
                     &= \dfrac{\SI[per-mode = power]{3e4}{\kilogram \metre \per\second}}{\SI[per-mode = power]{3e8}{\metre\per\second}},\\
-                    \Aboxed{p &= \SI{e-4}{\kilogram}}
+                    \Acolorboxed{p &= \SI{e-4}{\kilogram}}
                 \end{align*}
 
                 \item Densidad de masa \(\rho = \SI[per-mode = power]{10}{\kilogram \per \cubic\metre}\)
@@ -224,9 +240,9 @@
                 
                 Puesto que que la densidad ya está expresada en términos de \si{\kilogram} y \si{\metre}, no es necesario transformar la cantidad a unidades naturales. Por lo tanto,
 
-                \begin{equation*}
-                    \boxed{\rho = \SI[per-mode = power]{10}{\kilogram \per \cubic\metre}}
-                \end{equation*}
+                \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
+                    \rho = \SI[per-mode = power]{10}{\kilogram \per \cubic\metre}
+                \end{empheq}
             \end{enumerate}
 
             \item Transforma las siguientes cantidades de unidades naturales al SI.
@@ -238,7 +254,7 @@
 
                 \begin{align*}
                     v &= \num{e-2} \cdot 1 = \num{e-2}(\SI[per-mode = power]{3e8}{\metre\per\second}),\\
-                    \Aboxed{v &= \SI{3e6}{\metre\per\second}}
+                    \Acolorboxed{v &= \SI{3e6}{\metre\per\second}}
                 \end{align*}
 
                 \item Presión \(P = \SI[per-mode = power]{e19}{\kilogram \per \cubic\metre}\)
@@ -248,7 +264,7 @@
                 \begin{align*}
                     P &= \SI[per-mode = power]{e19}{\kilogram \per \cubic\metre} \cdot 1^{2},\\
                     &= \SI[per-mode = power]{e19}{\kilogram \per \cubic\metre}(\SI[per-mode = power]{9e16}{\metre\squared\per\second\squared}),\\
-                    \Aboxed{P &= \SI{9e35}{\newton\per\metre\squared}}
+                    \Acolorboxed{P &= \SI{9e35}{\newton\per\metre\squared}}
                 \end{align*}
 
                 \item Densidad de energía \(U = \SI[per-mode = power]{1}{\kilogram \per \cubic\metre}\) (las mismas unidades que la presión, qué raro).
@@ -258,7 +274,7 @@
                 \begin{align*}
                     U &= \SI[per-mode = power]{1}{\kilogram \per \cubic\metre} \cdot 1^{2},\\
                     &= \SI[per-mode = power]{1}{\kilogram \per \cubic\metre} (\SI[per-mode = power]{9e16}{\metre\squared\per\second\squared}),\\
-                    \Aboxed{U &= \SI{9e16}{\joule\per\cubic\metre}}
+                    \Acolorboxed{U &= \SI{9e16}{\joule\per\cubic\metre}}
                 \end{align*}
             \end{enumerate}
 
