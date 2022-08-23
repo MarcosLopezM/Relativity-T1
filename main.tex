@@ -19,7 +19,7 @@
 \usepackage[hyperref]{ntheorem}
 % \usepackage{phfqit} % Bra-ket notation
 \usepackage{physics}
-\usepackage[nolabel]{showlabels}
+\usepackage[inner]{showlabels}
 \usepackage{siunitx}
 \usepackage{titling}
 \usepackage{tabularray}
@@ -293,10 +293,87 @@
 
         \begin{enumerate}[label = \alph*)]
             \item Pinta la línea de mundo de \(\observer\) en el diagrama de \(\primeobserver\) indicado la inclinación de ésta en términos del ángulo \(\theta\).
+            
+            \inlinesol
+
+            Puesto que ahora nos encontramos ``parados'' en el sistema del observador \(\primeobserver\), observamos que \(\observer\) se está alejando con una velocidad \(-v\), por lo cual su línea de mundo queda como se muestra en la figura.
+            %TODO: Referenciar figura
+
+            \begin{figure}[htb]
+                \centering
+                \includegraphics{example-image}
+                \caption{Línea de mundo del observador \(\observer\) en términos de del ángulo \(\theta\).}
+                \label{fig:lineamundoO}
+            \end{figure}
+
+            De esta manera, la ecuación de la línea de mundo, cuando \(x = 0\) es el eje \(t\), está dada como
+
+            \begin{equation*}
+                x = -v t.
+            \end{equation*}
+
+            Entonces, la inclinación de ésta es \(\tan\theta = -v\), por lo que se tiene que \(\theta\) es
+
+            \begin{empheq}[box=\color{pinkwave}\fbox]{equation}
+                \theta = -\arctan(v)
+                \label{eq:theta}
+            \end{empheq}
+            
             \item Localiza los ejes \(t\) y \(x\) en el diagrama. No hace falta que utilices rayos de luz como hicimos en clase, usa el hecho de que la inclinación de ambos debe estar dada en términos del ángulo \(\theta\) (aunque no es mala idea hacerlo para corroborar tu respuesta).
+            
+            \inlinesol
+            
+            Sabemos que el ángulo entre \(t\) y \(t^{\prime}\) y entre \(x\) y \(x^{\prime}\) debe ser el mismo, entonce el eje \(x\) forma un ángulo \(\theta\) con el eje \(x^{\prime}\) como se muestra en la figura siguiente:
+
+            \begin{figure}[htb]
+                \centering
+                \includegraphics{example-image}
+                \caption{Diagrama espacio-tiempo de \(\observer\) desde la perspectiva de \(\primeobserver\).}
+                \label{fig:spacetime-Observer}
+            \end{figure}
+
             \item Elige dos eventos arbitrarios que ocurran a \(t = 0\) y márcalos en el diagrama de \(\primeobserver\). ¿Son estos eventos simultáneos para \(\primeobserver\)?
+            
+            \inlinesol
+            
+            Sean los eventos \(A\) y \(B\) con coordenadas \((0, x_{A})\) y \((0, x_{B})\), respectivamente. Es decir, estos eventos ocurren simultáneamente al tiempo \(t = 0\).
+
+            Ya que queremos determinar si los eventos ocurren simultáneamente para \(\primeobserver\), debemos proyectar los eventos \(A\) y \(B\) sobre el eje \(t^{\prime}\) en forma paralela al eje \(x^{\prime}\).
+
+            \begin{figure}[htb]
+                \centering
+                \includegraphics{example-image}
+                \caption{Los eventos \(A\) y \(B\) son simultáneos en el sistema de referencia del observador \(\observer\), pero no lo son en el de \(\primeobserver\).}
+                \label{fig:events-simultainety}
+            \end{figure}
+
+            Para estos eventos encontramos que el evento \(B\) ocurre antes que el \(A\), por lo que estos no son simultáneos para \(\primeobserver\).
+
             \item Pinta una línea de \(t = \textnormal{cte}\) (que no sea \(t = 0\)) en  el diagrama de \(\primeobserver\).
-            \item Si \(v = \num{e-2}\), ¿cuál es el valor de \(\theta\)? 
+            
+            \inlinesol
+
+            %TODO: Referenciar figura
+            En la figura se muestra el conjunto de todos los elementos que ocurren a \(t = \text{cte}\).
+
+            \begin{figure}[htb]
+                \centering
+                \includegraphics{example-image}
+                \caption{Conjunto de todos los eventos que ocurren a \(t = \text{cte}\).}
+                \label{fig:t-cte}
+            \end{figure}
+
+            \item Si \(v = \num{e-2}\), ¿cuál es el valor de \(\theta\)?
+            
+            \inlinesol
+
+            Sustituyendo el valor \(v\) en la \cref{eq:theta}, obtenemos que el valor de \(\theta\) es
+
+            \begin{align*}
+                \theta &= -\arctan(\num{e-2}),\\
+                &= -0.0099997,\\
+                \Acolorboxed{\theta &\approx -0.01}
+            \end{align*}
         \end{enumerate}
     \end{exercise}
 
