@@ -434,11 +434,92 @@
 
         \begin{enumerate}[label = \alph*)]
             \item Pinta la línea de mundo de \(\primeobserver\). ¿El eje \(t^{\prime}\) está contenido en algún plano importante?
+            
+            \inlinesol
+
+            Para obtener la línea de mundo del observador \(\primeobserver\) nos remitimos al plano \(xy\), tal que,
+
+            \begin{figure}[htb]
+                \centering
+                \includegraphics{example-image}
+                \caption{Proyección de la línea de mundo de \(\primeobserver\) en el plano \(xy\).}
+                \label{eq:Oprime-Planexy}
+            \end{figure}
+
+            Notamos entonces que \(t^{\prime}\) se encuentra en el plano \(xy\). Es decir, la línea de mundo del observador \(\primeobserver\) se obtiene cuando \(x = 0\ \wedge\ y = 0\). 
+
             \item Pinta el eje \(x^{\prime}\) argumentado con la construcción que hicimos en clase (no es necesario que la repitas paso a paso) y usando el hecho de que los ejes espaciales deben estar alineados según la convención que dimos arriba. ¿En qué plano están contenidos los ejes \(t^{\prime}\) y \(x^{\prime}\)?
+            
+            \inlinesol
+
+            Por hipótesis sabemos que los ejes espaciales de ambos sistemas están alineados, lo cual quiere decir que si los proyectamos en un plano adecuado, en particular el plano \(xy\), veremos lo siguiente
+
+            \begin{figure}[htb]
+                \centering
+                \includegraphics{example-image}
+                \caption{Eje \(x^{\prime}\) proyectado en el plano \(xy\).}
+                \label{fig:Xprime-Planext}
+            \end{figure}
+
+            Si ahora dibujamos a \(x^{\prime}\) en el plano \(xt\), veríamos lo siguiente:
+
+            \begin{figure}[htb]
+                \centering
+                \includegraphics{example-image}
+                \caption{Eje \(x^{\prime}\) proyecto en el plano \(xt\).}
+                \label{fig:Xprime-Planoxt}
+            \end{figure}
+
+            Además, notemos que \(\theta\) es igual al ángulo que hay entre \(t\) y \(t^{\prime}\), lo cual es análogo al caso que teníamos para el diagrama de espaciotiempo \(1+1\)-dimensional.
+
             \item Dibuja la línea de mundo de un rayo de luz que va desde el eje \(t^{\prime}\) a cierto tiempo \(t^{\prime} = -a\) hasta la parte negativa del eje \(y\). Luego dibuja la línea de mundo de otro rayo de luz que va desde la parte negativa del eje \(y\) a \(t = 0\) y llega al eje \(t^{\prime}\) a \(t^{\prime} = a\). ¿Estas líneas se intersectan? Si la respuesta es afirmativa, eso significa que el evento de la intersección es simultáneo con el origen según \(\primeobserver\).
+            
+            \inlinesol
+
+            Ahora queremos dibujar las líneas de mundo de los rayos que salen a dos tiempo \(t^{\prime}\) distintos t y, para facilitar la visualización de lo que se nos pide, nos remitimos al plano \(yt^{\prime}\).
+
+            \begin{figure}[htb]
+                \centering
+                \includegraphics{example-image}
+                \caption{Líneas de mundo para un rayo de luz que sale de \(t^{\prime} = -a\) hasta la parte negativa del eje \(y\), y para otro rayo que sale desde la parte negativa del eje \(y\) y llega a \(t^{\prime} = a\).}
+                \label{fig:Lineasmundo-Planoytprime}
+            \end{figure}
+
+            Las líneas de mundo en la \cref{fig:Lineasmundo-Planoytprime} se intersectan, ya que, como vimos previamente en clase, las líneas de mundo de rayos de luz se van a intersectar al eje \(y\) en \(y = -a\).
+
             \item Usa tu resultado de c) para dibujar el eje \(y^{\prime}\) usando el hecho de que los ejes espaciales deben estar alineados según la convención que dimos arriba (pintar la proyección del plano \(x^{\prime}y^{\prime}\) sobre el plano \(xy\) puede serte útil para entender mejor esto).
+            
+            \inlinesol
+
+            Por hipótesis sabemos que el eje \(y\) está alineado al eje \(y\). De esta manera, hacemos el análogo de la \cref{fig:Lineasmundo-Planoytprime}, \textbf{i.e.}, dibujamos la línea de mundo que va de \(t^{\prime} = -a\) a la parte positiva del eje \(y\) y, luego, la línea que va de la parte positiva del eje \(y\) a \(t^{\prime} = a\).
+
+            \begin{figure}[htb]
+                \centering
+                \includegraphics{example-image}
+                \caption{La intersección de las líneas de mundo de dos rayos de luz da como resultado el eje \(y^{\prime}\).}
+                \label{fig:Yprimeaxis}
+            \end{figure}
+
             \item Dado que estamos en \(2 + 1\) dimensiones, una ecuación del tipo \(t^{\prime} = \textnormal{cte}\) describe a un plano, así que ahora tenemos planos de simultaneidad. Pinta un plano de simultaneidad de \(\primeobserver\) (que no sea el \(x^{\prime}y^{\prime}\)).
+            
+            \inlinesol
+
+            Como queremos pintar un plano de simultaneidad a \(\primeobserver\), simplemente usamos la ecuación \(x^{\prime} = \text{cte}\), tal que,
+
+            \begin{figure}[htb]
+                \centering
+                \includegraphics{example-image}
+                \caption{Plano de simultaneidad \(y^{\prime}t^{\prime}\).}
+                \label{fig:simultainetyPlaneyprimetprime}
+            \end{figure}
         \end{enumerate}
         Esto ya no es parte del ejercicio, pero puede serte útil que pintes (o imagines, el dibujo ciertamente es complicado por la perspectiva) el cómo cambiarían tus respuestas anteriores si la velocidad de \(\primeobserver\) respecto a \(\observer\) fuera \(\va*{v} = v(\cos\phi\uvec{x} + \sin\phi\uvec{y})\).
     \end{exercise}
+
+    \begin{figure}[htb]
+        \centering
+        \includegraphics{example-image}
+        \caption{Diagrama de espaciotiempo \(2+1\)-dimensional.}
+        \label{fig:3D-EspacioTiempo}
+    \end{figure}
 \end{document}
