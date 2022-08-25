@@ -154,6 +154,8 @@
 \newcommand*{\observer}{\mathcal{O}}
 \newcommand*{\primeobserver}{\mathcal{O}^{\prime}}
 \newcommand*{\inlinesol}{\vspace*{10pt}\textbf{Solución}\vspace*{10pt}}
+\newcommand{\crefrangeconjunction}{--}
+\newcommand{\crefpairconjunction}{\xspace y\xspace}
 
 % Defining a variant of Aboxed command from mathtools
 \makeatletter
@@ -280,14 +282,55 @@
 
             \item Dos de las ecuaciones de Maxwell relacionan los campos eléctrico y magnético. En el vacío estas son
             
-            \begin{dmath}
+            \begin{dmath*}
                 \curl{\va*{E}} = -\pdv{\va*{B}}{t} \condition*{\curl{\va*{B}} = \dfrac{1}{c^{2}} \displaystyle\pdv{\va*{E}}{t}}
-            \end{dmath}
+            \end{dmath*}
 
             ¿Cómo se ven estas ecuaciones escritas en unidades naturales? ¿Cuál es la relación entre las unidades de \(\va*{E}\) y las de \(\va*{B}\)?
+
+            \inlinesol
+
+            Queremos transformar las ecuaciones de Maxwell asociada a los campos eléctrico y magnético a unidades naturales, por lo que debemos multiplicar por alguno de nuestro factores de conversión, pero añadiendo \(1 = \varepsilon_{0}\) y hacer (\emph{una especie}) de análisis dimensional; para ello consideraremos lo siguiente:
+
+            \begin{align}
+                T = [T] &= \si{\kilogram\per\second\squared\ampere},\label{eq:UnitsB}\\
+                E = \left[\si{\volt\per\metre}\right] &= \si{\metre\kilogram\per\second\squared\ampere},\label{eq:UnitsE}\\
+                c = [c] &= \si{\metre\per\second}\label{eq:UnitsC},\\
+                G = [G] &= \si{\cubic\metre\per\kilogram\per\second\squared},\nonumber\\
+                G^{\sfrac{1}{2}} = [G^{\sfrac{1}{2}}] &= \si{\metre\tothe{3/2}\per\kilogram\tothe{1/2}\per\second},\label{eq:UnitsGRoot}\\
+                \varepsilon_{0} = [\varepsilon_{0}] &= \si{\second\tothe{4}\ampere\squared\per\kilogram\per\cubic\metre},\nonumber\\
+                {\varepsilon_{0}}^{\sfrac{1}{2}} = [{\varepsilon_{0}}^{\sfrac{1}{2}}] &= \si{\second\squared\ampere\per\kilogram\tothe{1/2}\per\metre\tothe{3/2}},\label{eq:UnitsEoRoot}
+            \end{align}
+
+            donde \(T\) son las unidades del campo magnético, \(E\) las unidades del campo eléctrico, \(c\) las unidades de la velocidad de la luz, \(G^{\sfrac{1}{2}}\) las unidades de la raíz cuadrada de la constate de gravitación universal y \({\varepsilon_{0}}^{\sfrac{1}{2}}\) las unidades de la raíz cuadrada de la constante de permitividad en el vacío.
+
+            Así,
+
+            \begin{itemize}[label = \textbullet]
+                \item Ecuación de Faraday
+                
+                Realizando el ``análisis dimensional'' de la multiplicación de las \crefrange{eq:UnitsC}{eq:UnitsEoRoot} por la \cref{eq:UnitsB}, tenemos que en unidades naturales el campo magnético está expresado en \si[per-mode = power]{\per\metre}. Por lo tanto,
+
+                \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
+                    \curl{\va*{E}} = -c^{-1}G^{\sfrac{1}{2}}{\varepsilon_{0}}^{\sfrac{1}{2}}\pdv{\va*{B}}{t}
+                \end{empheq}
+
+                \item Ecuación de Ampere
+                
+                Análogamente, el factor por el que debemos multiplicar la \cref{eq:UnitsE} es el dado por las \cref{eq:UnitsGRoot,eq:UnitsEoRoot}, tal que,
+
+                \begin{empheq}[box = \color{pinkwave}\fbox]{equation*}
+                    \curl{\va*{B}} = c^{-2}G^{\sfrac{1}{2}}{\varepsilon_{0}}^{\sfrac{1}{2}}\pdv{\va*{E}}{t}
+                \end{empheq}
+            \end{itemize}
+
+            Notemos entonces que \([\curl{\va*{E}}]\) y \([\curl{\va*{B}}]\) tienen dimensión igual a \([L^{-1}]\).
+
+            Respondiendo la segunda pregunta, no hay una relación \emph{per se} entre las unidades de \(\va*{E}\) y las de \(\va*{B}\), ya que en unidades naturales tienen las mismas unidades. Es decir, la diferencia de unidades con la que habitualmente lidiamos se debe al sistema de unidades con el que estamos trabajando, \textbf{e.g.}, SI, CGS, etc.
         \end{enumerate}
     \end{exercise}
 
+    \pagebreak
     \begin{exercise}
         Considera dos sistemas de referencia inerciales \(\observer\) y \(\primeobserver\), tal que \(\primeobserver\) se mueve con velocidad \(v\) en la dirección positiva del eje \(x\) respecto a \(\observer\) y el origen de ambos sistemas es el mismo evento. En clase pintamos el diagrama de espacio-tiempo desde la perspectiva de \(\observer\) y localizamos en éste los ejes de \(\primeobserver\). En este problema encontrarás los ejes de \(\observer\) en el diagrama de \(\primeobserver\).
 
@@ -296,12 +339,11 @@
             
             \inlinesol
 
-            Puesto que ahora nos encontramos ``parados'' en el sistema del observador \(\primeobserver\), observamos que \(\observer\) se está alejando con una velocidad \(-v\), por lo cual su línea de mundo queda como se muestra en la figura.
-            %TODO: Referenciar figura
+            Puesto que ahora nos encontramos ``parados'' en el sistema del observador \(\primeobserver\), observamos que \(\observer\) se está alejando con una velocidad \(-v\), por lo cual su línea de mundo queda como se muestra en la \cref{fig:lineamundoO}.
 
             \begin{figure}[htb]
                 \centering
-                \includegraphics{example-image}
+                \includegraphics[scale = 0.4]{example-image}
                 \caption{Línea de mundo del observador \(\observer\) en términos de del ángulo \(\theta\).}
                 \label{fig:lineamundoO}
             \end{figure}
@@ -312,12 +354,18 @@
                 x = -v t.
             \end{equation*}
 
-            Entonces, la inclinación de ésta es \(\tan\theta = -v\), por lo que se tiene que \(\theta\) es
+            Entonces, la inclinación de ésta es \(\tan\theta = -v\), por lo que se la ecuación de la línea de mundo queda como:
+            
+            \begin{empheq}[box=\color{pinkwave}\fbox]{equation*}
+                x = -\tan(\theta) t
+            \end{empheq}
 
-            \begin{empheq}[box=\color{pinkwave}\fbox]{equation}
+            Y, además se tiene que \(\theta\) es
+
+            \begin{equation}
                 \theta = -\arctan(v)
                 \label{eq:theta}
-            \end{empheq}
+            \end{equation}
             
             \item Localiza los ejes \(t\) y \(x\) en el diagrama. No hace falta que utilices rayos de luz como hicimos en clase, usa el hecho de que la inclinación de ambos debe estar dada en términos del ángulo \(\theta\) (aunque no es mala idea hacerlo para corroborar tu respuesta).
             
@@ -327,7 +375,7 @@
 
             \begin{figure}[htb]
                 \centering
-                \includegraphics{example-image}
+                \includegraphics[scale = 0.4]{example-image}
                 \caption{Diagrama espacio-tiempo de \(\observer\) desde la perspectiva de \(\primeobserver\).}
                 \label{fig:spacetime-Observer}
             \end{figure}
@@ -342,7 +390,7 @@
 
             \begin{figure}[htb]
                 \centering
-                \includegraphics{example-image}
+                \includegraphics[scale = 0.3]{example-image}
                 \caption{Los eventos \(A\) y \(B\) son simultáneos en el sistema de referencia del observador \(\observer\), pero no lo son en el de \(\primeobserver\).}
                 \label{fig:events-simultainety}
             \end{figure}
@@ -353,12 +401,11 @@
             
             \inlinesol
 
-            %TODO: Referenciar figura
-            En la figura se muestra el conjunto de todos los elementos que ocurren a \(t = \text{cte}\).
+            La línea correspondiente a \(t = \text{cte}\) no es único, sino que existen ``infinitas``. Esto se puede ver en la \cref{fig:t-cte}, donde cada línea representa el conjunto de todos los elementos que ocurren a \(t = \text{cte}\).
 
             \begin{figure}[htb]
                 \centering
-                \includegraphics{example-image}
+                \includegraphics[scale = 0.3]{example-image}
                 \caption{Conjunto de todos los eventos que ocurren a \(t = \text{cte}\).}
                 \label{fig:t-cte}
             \end{figure}
@@ -374,9 +421,12 @@
                 &= -0.0099997,\\
                 \Acolorboxed{\theta &\approx -0.01}
             \end{align*}
+
+            Este resultado coincide con la teoría, por que sabemos que para \(v \ll 1\), el ángulo \(\theta \approx 0\).
         \end{enumerate}
     \end{exercise}
 
+    \pagebreak
     \begin{exercise}
         En este problema pintarás algunas cosas en un diagrama de un espacio-tiempo \(2 + 1\)-dimensional. Aunque no lo usaremos mucho a lo largo del curso, conviene que tengas una idea de cómo debe hacerse. Dado que esto involucra dibujar un espacio de tres dimensiones en papel, además de tus dibujos agrega descripciones detalladas de lo que estás mostrando. También puede ser útil que muestres el cómo se ven las cosas desde una proyección a algún plano en particular.
 
